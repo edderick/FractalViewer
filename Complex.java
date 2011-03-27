@@ -5,6 +5,11 @@ public class Complex{
     //The real and imaginary parts of the complex number
     double realPart, imaginaryPart;
 
+    public Complex(double real, double imaginary){
+        this.realPart = real;
+        this.imaginaryPart = imaginary;
+    }
+
     /**
     *@return The real part of the complex number
     */
@@ -51,9 +56,19 @@ public class Complex{
     }
 
     /**
+    *@return The modulus of the complex number
+    */
+    public double modulus(){
+        //The hypot function does Sqrt(x^2 + y^2)
+        double modulus = Math.hypot(realPart, imaginaryPart);
+        return modulus;
+    
+    }
+
+    /**
     *@return The square of the modulus of the complex number
     */
-    public double modulusSquares(){
+    public double modulusSquared(){
         //The hypot function does Sqrt(x^2 + y^2)
         double modulus = Math.hypot(realPart, imaginaryPart);
         return modulus * modulus;
