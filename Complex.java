@@ -5,6 +5,11 @@ public class Complex{
     //The real and imaginary parts of the complex number
     double realPart, imaginaryPart;
 
+    /**
+     * The deafault constructor for a complex number
+     * @param real The real part 
+     * @param imaginary The imaginary part
+     */
     public Complex(double real, double imaginary){
         this.realPart = real;
         this.imaginaryPart = imaginary;
@@ -36,7 +41,7 @@ public class Complex{
    *Allows changing of the imaginary part
    *@param num The new value of the imaginary part
    */ 
-    public void setImaginary(double num){
+    public void setImaginaryPart(double num){
         this.imaginaryPart = num;
     }
 
@@ -56,23 +61,10 @@ public class Complex{
     }
 
     /**
-    *@return The modulus of the complex number
-    */
-    public double modulus(){
-        //The hypot function does Sqrt(x^2 + y^2)
-        double modulus = Math.hypot(realPart, imaginaryPart);
-        return modulus;
-    
-    }
-
-    /**
     *@return The square of the modulus of the complex number
     */
     public double modulusSquared(){
-        //The hypot function does Sqrt(x^2 + y^2)
-        double modulus = Math.hypot(realPart, imaginaryPart);
-        return modulus * modulus;
-    
+        return realPart * realPart + imaginaryPart * imaginaryPart;
     }
 
     /**
@@ -82,5 +74,18 @@ public class Complex{
     public void add(Complex d){
         realPart += d.getRealPart();
         imaginaryPart += d.getImaginaryPart();
+    }
+
+    /**
+     * Uses mainly in Burning ship fractal
+     * Calculates the absolute value of both parts
+     */
+    public void modulusParts(){
+        if (imaginaryPart < 0) imaginaryPart = 0 - imaginaryPart;
+        if (realPart < 0) realPart = 0 - realPart;
+    }
+
+    public String toString(){
+        return Double.toString(realPart) + " + " +  Double.toString(imaginaryPart) + "i";
     }
 }
